@@ -32,7 +32,7 @@ export default function Footer() {
         
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-900">
           <div className="space-y-1 text-center sm:text-left">
-            <span className="text-base font-bold text-white font-sans tracking-tight">Jordan.dev</span>
+            <span className="text-base font-bold text-white font-sans tracking-tight">CUPRALIA LABS</span>
             <p className="text-slate-500 text-[11px]">Desarrollo Web FullStack & Soluciones Digitales</p>
           </div>
 
