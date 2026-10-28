@@ -1,0 +1,26 @@
+C:\Users\HP PRO BOOK\Desktop\FRONTEND\PROYECTOS\JP-Frontend
+├── eslint.config.js
+├── index.html
+├── node_modules
+|  ├── @eslint
+|  ├── @tailwindcss
+|  ├── @types
+|  ├── @vitejs
+├── package.json
+├── pnpm-lock.yaml
+├── public
+|  ├── favicon.svg
+|  └── icons.svg
+├── README.md
+├── src
+|  ├── App.jsx
+|  ├── assets
+|  |  ├── hero.png
+|  |  ├── react.svg
+|  |  └── vite.svg
+|  ├── index.css
+|  └── main.jsx
+└── vite.config.js
+
+directory: 8 file: 14 symboliclink: 13
+
