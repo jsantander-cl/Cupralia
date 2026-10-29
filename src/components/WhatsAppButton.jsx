@@ -18,7 +18,7 @@ export default function WhatsAppButton() {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
       
-      {/* Tooltip con animación y cierre voluntario */}
+      {/* Tooltip: fondo oscuro en light, blanco en dark, con borde color cobre exclusivo en light mode */}
       <AnimatePresence>
         {showTooltip && (
           <motion.div
@@ -26,13 +26,13 @@ export default function WhatsAppButton() {
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 20, scale: 0.9 }}
             transition={{ duration: 0.3 }}
-            className="hidden sm:flex items-center space-x-2 bg-slate-900/95 text-slate-200 text-xs font-mono px-3.5 py-2 rounded-2xl border border-slate-800 shadow-2xl backdrop-blur-md"
+            className="hidden sm:flex items-center space-x-2 bg-slate-900/95 text-slate-200 dark:bg-white dark:text-slate-900 text-xs font-mono px-3.5 py-2 rounded-2xl border border-amber-500/80 dark:border-slate-200 shadow-2xl backdrop-blur-md transition-colors"
           >
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             <span>¿Hablamos de tu proyecto?</span>
             <button 
               onClick={() => setShowTooltip(false)}
-              className="ml-2 text-slate-500 hover:text-slate-300 font-bold text-xs cursor-pointer"
+              className="ml-2 text-slate-400 hover:text-slate-200 dark:text-slate-400 dark:hover:text-slate-700 font-bold text-xs cursor-pointer"
             >
               ×
             </button>

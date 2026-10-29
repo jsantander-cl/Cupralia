@@ -1,139 +1,119 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Terminal, ArrowUpRight, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { ShieldCheck, HardHat, Cpu, Terminal, Database, Server, CheckCircle2, ArrowRight } from 'lucide-react';
 
 export default function HybridProfile() {
-  const stackItems = [
-    {
-      category: 'Frontend & Responsive',
-      techs: 'React, TypeScript, Tailwind v4',
-      badgeColor: 'text-amber-400 bg-amber-500/10 border-amber-500/20'
-    },
-    {
-      category: 'Backend & Base de Datos',
-      techs: 'Node.js, Express, Supabase (PostgreSQL)',
-      badgeColor: 'text-orange-400 bg-orange-500/10 border-orange-500/20'
-    },
-    {
-      category: 'Entorno & Despliegue',
-      techs: 'Git, GitHub, Vercel, Vite',
-      badgeColor: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20'
-    }
-  ];
-
   return (
-    <section id="perfil" className="py-20 bg-slate-950 border-t border-slate-900 text-slate-100 relative overflow-hidden">
+    <section id="perfil" className="py-20 bg-slate-950 dark:bg-slate-50 text-slate-100 dark:text-slate-900 relative border-t border-slate-900 dark:border-slate-200 transition-colors">
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
+        
+        {/* Cabecera de la sección */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto space-y-3"
+        >
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-amber-500/10 dark:bg-amber-500/20 border border-amber-500/20 dark:border-amber-500/40 text-amber-400 dark:text-amber-700 text-xs font-mono font-semibold uppercase tracking-widest transition-colors">
+            <HardHat className="w-3.5 h-3.5 text-amber-400 dark:text-amber-600" />
+            <span>Trayectoria & Experiencia Operativa</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white dark:text-slate-900 transition-colors">
+            Un Perfil Híbrido Único en el Mercado
+          </h2>
+
+          <p className="text-slate-400 dark:text-slate-600 text-xs sm:text-sm leading-relaxed font-light transition-colors">
+            Combinamos más de 10 años de alta exigencia en operaciones mineras (BHP - Minera Escondida) con ingeniería de software moderna en Antofagasta, Chile.
+          </p>
+        </motion.div>
+
+        {/* Bento Grid principal */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
+          {/* Tarjeta Izquierda: Experiencia en Terreno */}
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 space-y-6"
+            className="lg:col-span-6 bg-slate-900/60 dark:bg-white border border-slate-800 dark:border-slate-200 rounded-3xl p-8 flex flex-col justify-between space-y-6 shadow-xl transition-colors"
           >
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-mono font-semibold uppercase tracking-widest">
-              <Award className="w-3.5 h-3.5 text-amber-400" />
-              <span>Experiencia Comprobable</span>
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 dark:bg-amber-100 border border-amber-500/30 dark:border-amber-300 flex items-center justify-center text-amber-400 dark:text-amber-700">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-bold text-white dark:text-slate-900 transition-colors">
+                Rigor Industrial & Gestión de Recursos
+              </h3>
+
+              <p className="text-slate-300 dark:text-slate-700 text-xs sm:text-sm font-light leading-relaxed transition-colors">
+                Haber liderado y operado en entornos críticos de la gran minería en <strong className="text-amber-400 dark:text-amber-700 font-semibold">Minera Escondida (BHP)</strong> nos otorga una perspectiva que ningunas otras agencias tienen: entendemos la prevención de riesgos, la optimización de tiempos muertos, el control de presupuestos y la eficiencia absoluta antes de escribir la primera línea de código.
+              </p>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-              ¿Por qué elegir un perfil híbrido para tu proyecto web?
-            </h2>
-
-            <p className="text-slate-400 text-sm sm:text-base leading-relaxed font-light">
-              Más de 10 años gestionando operaciones críticas, recursos humanos y flujos documentales en la gran minería (BHP - Minera Escondida) me otorgan un criterio único de producto. No solo escribo código limpio en React y Node.js; entiendo los problemas reales de los negocios y los traduzco en soluciones digitales eficientes.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-              <div className="flex items-center space-x-2.5 text-xs text-slate-300 font-mono">
-                <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Rigor Operativo y Puntualidad</span>
+            <div className="space-y-2 pt-4 border-t border-slate-800/80 dark:border-slate-200 font-mono text-xs text-slate-300 dark:text-slate-700">
+              <div className="flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-amber-400 dark:text-amber-600 shrink-0" />
+                <span>Gestión de proyectos bajo estándares mineros</span>
               </div>
-              <div className="flex items-center space-x-2.5 text-xs text-slate-300 font-mono">
-                <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Enfoque en Conversión y UX</span>
+              <div className="flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-amber-400 dark:text-amber-600 shrink-0" />
+                <span>Enfoque estricto en flujos libres de fallas</span>
               </div>
-              <div className="flex items-center space-x-2.5 text-xs text-slate-300 font-mono">
-                <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Arquitectura Limpia & Escalable</span>
-              </div>
-              <div className="flex items-center space-x-2.5 text-xs text-slate-300 font-mono">
-                <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Atención Personalizada Directa</span>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-3 pt-4">
-              <a 
-                href="https://github.com/jsantander-cl" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 text-xs font-mono font-bold text-amber-400 hover:text-amber-300 bg-amber-500/10 px-6 py-3.5 rounded-xl border border-amber-500/20 transition-all hover:bg-amber-500/20"
-              >
-                <span>Ver Repositorio GitHub</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-
-              <a 
-                href="https://www.linkedin.com/in/jordans-phillips/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 text-xs font-mono font-bold text-slate-300 hover:text-white bg-slate-900 px-6 py-3.5 rounded-xl border border-slate-800 transition-all hover:bg-slate-800"
-              >
-                <span>Perfil LinkedIn</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
             </div>
           </motion.div>
 
+          {/* Tarjeta Derecha: Stack Tecnológico */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-5"
+            className="lg:col-span-6 bg-slate-900/60 dark:bg-white border border-slate-800 dark:border-slate-200 rounded-3xl p-8 flex flex-col justify-between space-y-6 shadow-xl transition-colors"
           >
-            <div className="bg-gradient-to-br from-slate-900/90 to-slate-950 p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-2xl space-y-5 relative overflow-hidden">
-              
-              <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-                <div className="flex items-center space-x-2.5">
-                  <Terminal className="w-5 h-5 text-amber-400" />
-                  <h3 className="text-base font-bold text-white">Stack Tecnológico Activo</h3>
-                </div>
-                <ShieldCheck className="w-5 h-5 text-amber-500" />
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 dark:bg-amber-100 border border-amber-500/30 dark:border-amber-300 flex items-center justify-center text-amber-400 dark:text-amber-700">
+                <Cpu className="w-6 h-6" />
               </div>
 
-              <div className="space-y-3">
-                {stackItems.map((item, idx) => (
-                  <div 
-                    key={idx} 
-                    className="p-4 bg-slate-950/70 rounded-2xl border border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-2"
-                  >
-                    <span className="text-xs font-mono text-slate-400">{item.category}</span>
-                    <span className={`text-xs font-mono font-bold px-2.5 py-1 rounded-lg border ${item.badgeColor}`}>
-                      {item.techs}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white dark:text-slate-900 transition-colors">
+                Stack Tecnológico de Vanguardia
+              </h3>
 
-              <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-500">
-                <span>Antofagasta, Chile</span>
-                <span className="flex items-center space-x-1 text-emerald-400">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span>Disponible para proyectos</span>
-                </span>
-              </div>
-
+              <p className="text-slate-300 dark:text-slate-700 text-xs sm:text-sm font-light leading-relaxed transition-colors">
+                Construimos soluciones robustas y escalables utilizando arquitecturas limpias y tecnologías probadas en el ecosistema web actual.
+              </p>
             </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-xs">
+              <div className="bg-slate-950 dark:bg-slate-100 border border-slate-800 dark:border-slate-300 p-3 rounded-xl space-y-1 transition-colors">
+                <Terminal className="w-4 h-4 text-amber-400 dark:text-amber-600" />
+                <p className="font-bold text-white dark:text-slate-900">React & Vite</p>
+                <span className="text-[10px] text-slate-400 dark:text-slate-500">Frontend UI</span>
+              </div>
+
+              <div className="bg-slate-950 dark:bg-slate-100 border border-slate-800 dark:border-slate-300 p-3 rounded-xl space-y-1 transition-colors">
+                <Database className="w-4 h-4 text-amber-400 dark:text-amber-600" />
+                <p className="font-bold text-white dark:text-slate-900">Supabase</p>
+                <span className="text-[10px] text-slate-400 dark:text-slate-500">PostgreSQL & Auth</span>
+              </div>
+
+              <div className="bg-slate-950 dark:bg-slate-100 border border-slate-800 dark:border-slate-300 p-3 rounded-xl space-y-1 transition-colors">
+                <Server className="w-4 h-4 text-amber-400 dark:text-amber-600" />
+                <p className="font-bold text-white dark:text-slate-900">Tailwind v4</p>
+                <span className="text-[10px] text-slate-400 dark:text-slate-500">Diseño Responsivo</span>
+              </div>
+            </div>
+
           </motion.div>
 
         </div>
-      </div>
 
+      </div>
     </section>
   );
 }

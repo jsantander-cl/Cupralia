@@ -70,7 +70,7 @@ export default function Portfolio() {
   });
 
   return (
-    <section id="proyectos" className="py-20 bg-slate-950 text-slate-100 relative border-t border-slate-900 overflow-hidden">
+    <section id="proyectos" className="py-20 bg-slate-950 dark:bg-slate-50 text-slate-100 dark:text-slate-900 relative border-t border-slate-900 dark:border-slate-200 overflow-hidden transition-colors">
       
       <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-amber-600/10 rounded-full blur-[160px] pointer-events-none"></div>
 
@@ -83,16 +83,16 @@ export default function Portfolio() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-12 space-y-3"
         >
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-mono font-semibold uppercase tracking-widest">
-            <FolderGit2 className="w-3.5 h-3.5 text-amber-400" />
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-amber-500/10 dark:bg-amber-500/20 border border-amber-500/20 dark:border-amber-500/40 text-amber-400 dark:text-amber-700 text-xs font-mono font-semibold uppercase tracking-widest transition-colors">
+            <FolderGit2 className="w-3.5 h-3.5 text-amber-400 dark:text-amber-600" />
             <span>Portafolio Seleccionado</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white dark:text-slate-900 transition-colors">
             Proyectos & Casos de Uso
           </h2>
 
-          <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-light">
+          <p className="text-slate-400 dark:text-slate-600 text-xs sm:text-sm leading-relaxed font-light transition-colors">
             Soluciones reales desarrolladas con arquitectura limpia, integración de bases de datos y diseño de alto impacto.
           </p>
         </motion.div>
@@ -104,8 +104,8 @@ export default function Portfolio() {
               onClick={() => setFilter(cat)}
               className={`px-4 py-2 rounded-xl transition-all cursor-pointer ${
                 filter === cat 
-                  ? 'bg-amber-600 text-slate-950 font-bold shadow-lg shadow-amber-600/30' 
-                  : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800'
+                  ? 'bg-amber-600 dark:bg-amber-500 text-slate-950 dark:text-white font-bold shadow-lg shadow-amber-600/30' 
+                  : 'bg-slate-900 dark:bg-white text-slate-400 dark:text-slate-600 hover:text-slate-200 dark:hover:text-slate-900 border border-slate-800 dark:border-slate-300'
               }`}
             >
               {cat === 'ALL' ? 'Todos los Proyectos' : cat}
@@ -124,39 +124,39 @@ export default function Portfolio() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-slate-900/60 border border-slate-800/80 hover:border-amber-500/50 rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/10 group"
+                className="bg-slate-900/60 dark:bg-white border border-slate-800/80 dark:border-slate-200 hover:border-amber-500/50 rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/10 group shadow-sm"
               >
                 <div>
-                  <div className="relative aspect-[16/9] overflow-hidden bg-slate-950">
+                  <div className="relative aspect-[16/9] overflow-hidden bg-slate-950 dark:bg-slate-100">
                     <img 
                       src={project.image} 
                       alt={project.title}
-                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                      className="w-full h-full object-cover opacity-80 dark:opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 dark:from-white via-slate-900/20 dark:via-white/20 to-transparent"></div>
 
-                    <span className="absolute top-4 left-4 text-[10px] font-mono font-bold uppercase tracking-widest text-amber-400 bg-slate-950/90 backdrop-blur-md px-3 py-1 rounded-md border border-amber-500/20 flex items-center space-x-1.5">
-                      <IconComponent className="w-3 h-3 text-amber-400" />
+                    <span className="absolute top-4 left-4 text-[10px] font-mono font-bold uppercase tracking-widest text-amber-400 dark:text-amber-700 bg-slate-950/90 dark:bg-white/90 backdrop-blur-md px-3 py-1 rounded-md border border-amber-500/20 dark:border-amber-300 flex items-center space-x-1.5 transition-colors">
+                      <IconComponent className="w-3 h-3 text-amber-400 dark:text-amber-600" />
                       <span>{project.category}</span>
                     </span>
                   </div>
 
                   <div className="p-6 space-y-3">
-                    <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                    <h3 className="text-xl font-bold text-white dark:text-slate-900 group-hover:text-amber-400 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-slate-400 text-xs sm:text-sm font-light leading-relaxed">
+                    <p className="text-slate-400 dark:text-slate-600 text-xs sm:text-sm font-light leading-relaxed transition-colors">
                       {project.description}
                     </p>
                   </div>
                 </div>
 
                 <div className="p-6 pt-0 space-y-4">
-                  <div className="flex flex-wrap gap-1.5 pt-2 border-t border-slate-800/60">
+                  <div className="flex flex-wrap gap-1.5 pt-2 border-t border-slate-800/60 dark:border-slate-200 transition-colors">
                     {project.tags.map((tag, tIdx) => (
                       <span 
                         key={tIdx} 
-                        className="text-[10px] font-mono text-slate-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800"
+                        className="text-[10px] font-mono text-slate-300 dark:text-slate-700 bg-slate-950 dark:bg-slate-100 px-2.5 py-1 rounded-md border border-slate-800 dark:border-slate-300 transition-colors"
                       >
                         {tag}
                       </span>
@@ -168,7 +168,7 @@ export default function Portfolio() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-1.5 text-xs font-mono text-slate-400 hover:text-white transition-colors"
+                      className="inline-flex items-center space-x-1.5 text-xs font-mono text-slate-400 dark:text-slate-600 hover:text-white dark:hover:text-slate-900 transition-colors"
                     >
                       <GithubIcon className="w-4 h-4" />
                       <span>Código fuente</span>
@@ -178,7 +178,7 @@ export default function Portfolio() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-1.5 text-xs font-mono font-bold text-amber-400 hover:text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 px-3.5 py-1.5 rounded-lg border border-amber-500/20 transition-all"
+                      className="inline-flex items-center space-x-1.5 text-xs font-mono font-bold text-amber-400 dark:text-amber-700 hover:text-amber-300 bg-amber-500/10 dark:bg-amber-100 hover:bg-amber-500/20 px-3.5 py-1.5 rounded-lg border border-amber-500/20 dark:border-amber-300 transition-all"
                     >
                       <span>Ver Demo en Vivo</span>
                       <ExternalLink className="w-3.5 h-3.5" />

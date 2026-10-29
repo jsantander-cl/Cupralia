@@ -69,9 +69,9 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative bg-slate-950 text-slate-100 font-sans selection:bg-amber-600 selection:text-white w-full">
+    <div className="relative bg-slate-950 dark:bg-slate-50 text-slate-100 dark:text-slate-900 font-sans selection:bg-amber-600 selection:text-white w-full transition-colors">
       
-      <section ref={pinnedRef} id="experiencia-hero-pinned" className="relative h-[300vh] bg-slate-950 w-full">
+      <section ref={pinnedRef} id="experiencia-hero-pinned" className="relative h-[300vh] bg-slate-950 dark:bg-slate-50 w-full transition-colors">
         
         <div className="sticky top-16 h-[calc(100vh-4rem)] w-full flex flex-col justify-between p-4 sm:p-8 lg:px-16 lg:py-8 overflow-hidden">
           
@@ -87,10 +87,11 @@ export default function Hero() {
               <img 
                 src={steps[activeStep].bgImage} 
                 alt="Background"
-                className="w-full h-full object-cover filter brightness-[0.55] contrast-[1.1]"
+                className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.1]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-400/10 to-slate-950/70"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
+              {/* Degradados adaptables para ambos modos */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 dark:from-slate-100 via-slate-950/40 dark:via-slate-100/40 to-slate-950/70 dark:to-slate-100/70 transition-colors"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 dark:from-slate-100/90 via-slate-950/40 dark:via-slate-100/40 to-transparent"></div>
             </motion.div>
           </AnimatePresence>
 
@@ -99,9 +100,9 @@ export default function Hero() {
               <motion.div 
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-slate-900/90 backdrop-blur-md border border-amber-500/20 text-amber-400 text-[10px] sm:text-xs font-semibold tracking-wider uppercase shadow-xl"
+                className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-slate-900/90 dark:bg-white/90 backdrop-blur-md border border-amber-500/20 dark:border-amber-500/40 text-amber-400 dark:text-amber-700 text-[10px] sm:text-xs font-semibold tracking-wider uppercase shadow-xl transition-colors"
               >
-                <Sparkles className="w-3 h-3 shrink-0 animate-pulse text-amber-400" />
+                <Sparkles className="w-3 h-3 shrink-0 animate-pulse text-amber-400 dark:text-amber-600" />
                 <span>Atelier de Software & Soluciones Web</span>
               </motion.div>
             ) : (
@@ -110,23 +111,23 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 className="flex items-center space-x-2"
               >
-                <span className="text-xl sm:text-2xl font-black font-mono text-amber-400 tracking-tighter">
+                <span className="text-xl sm:text-2xl font-black font-mono text-amber-400 dark:text-amber-600 tracking-tighter">
                   {steps[activeStep].number}
                 </span>
-                <span className="text-[10px] sm:text-xs font-mono font-bold text-slate-200 uppercase tracking-wider bg-slate-900/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-amber-500/30 shadow-xl">
+                <span className="text-[10px] sm:text-xs font-mono font-bold text-slate-200 dark:text-slate-800 uppercase tracking-wider bg-slate-900/90 dark:bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-amber-500/30 dark:border-amber-500/40 shadow-xl transition-colors">
                   {steps[activeStep].tag}
                 </span>
               </motion.div>
             )}
 
-            <div className="flex items-center space-x-2 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-800 shadow-xl">
-              <span className="text-[9px] sm:text-[10px] font-mono font-bold text-slate-400 uppercase hidden sm:inline">PROGRESO</span>
+            <div className="flex items-center space-x-2 bg-slate-900/80 dark:bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-800 dark:border-slate-200 shadow-xl transition-colors">
+              <span className="text-[9px] sm:text-[10px] font-mono font-bold text-slate-400 dark:text-slate-600 uppercase hidden sm:inline">PROGRESO</span>
               <div className="flex items-center space-x-1">
                 {[1, 2, 3].map((stepIdx) => (
                   <div 
                     key={stepIdx}
                     className={`h-1.5 rounded-full transition-all duration-500 ${
-                      activeStep === stepIdx ? 'w-5 bg-amber-500' : 'w-1.5 bg-slate-700/80'
+                      activeStep === stepIdx ? 'w-5 bg-amber-500' : 'w-1.5 bg-slate-700/80 dark:bg-slate-300'
                     }`}
                   />
                 ))}
@@ -145,29 +146,29 @@ export default function Hero() {
                   transition={{ duration: 0.5 }}
                   className="max-w-4xl space-y-4 sm:space-y-6"
                 >
-                  <h1 className="text-3xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-tight sm:leading-[1.05]">
+                  <h1 className="text-3xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white dark:text-slate-900 leading-tight sm:leading-[1.05] transition-colors">
                     SOFTWARE CON <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-orange-500">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-orange-500 dark:from-amber-600 dark:via-amber-700 dark:to-orange-700">
                       PROPÓSITO & RIGOR.
                     </span>
                   </h1>
 
-                  <p className="text-slate-300 text-xs sm:text-lg max-w-2xl font-light leading-relaxed">
+                  <p className="text-slate-300 dark:text-slate-700 text-xs sm:text-lg max-w-2xl font-light leading-relaxed transition-colors">
                     Fusionamos la disciplina de más de 10 años en operaciones mineras (BHP) con el desarrollo FullStack de alta gama. Soluciones sin artificios para empresas exigentes.
                   </p>
 
                   <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                     <button
                       onClick={scrollToServices}
-                      className="group inline-flex items-center justify-center space-x-2 bg-amber-600 hover:bg-amber-500 text-slate-950 font-bold text-xs tracking-widest uppercase px-6 py-3.5 rounded-xl shadow-xl shadow-amber-600/30 transition-all cursor-pointer"
+                      className="group inline-flex items-center justify-center space-x-2 bg-amber-600 hover:bg-amber-500 text-slate-950 dark:text-white font-bold text-xs tracking-widest uppercase px-6 py-3.5 rounded-xl shadow-xl shadow-amber-600/30 transition-all cursor-pointer"
                     >
                       <span>Armar Cotización Web</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                     
-                    <span className="text-[11px] font-mono text-slate-400 flex items-center justify-center space-x-1.5 pt-1 sm:pt-0">
+                    <span className="text-[11px] font-mono text-slate-400 dark:text-slate-600 flex items-center justify-center space-x-1.5 pt-1 sm:pt-0 transition-colors">
                       <span>Desliza para comenzar</span>
-                      <ChevronDown className="w-3.5 h-3.5 text-amber-400 animate-bounce" />
+                      <ChevronDown className="w-3.5 h-3.5 text-amber-400 dark:text-amber-600 animate-bounce" />
                     </span>
                   </div>
                 </motion.div>
@@ -181,22 +182,22 @@ export default function Hero() {
                   className="max-w-3xl space-y-4"
                 >
                   <div className="space-y-1">
-                    <span className="text-[11px] font-mono font-semibold text-amber-400 tracking-widest uppercase block">
+                    <span className="text-[11px] font-mono font-semibold text-amber-400 dark:text-amber-600 tracking-widest uppercase block transition-colors">
                       {steps[activeStep].subheadline}
                     </span>
-                    <h2 className="text-2xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+                    <h2 className="text-2xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white dark:text-slate-900 leading-tight transition-colors">
                       {steps[activeStep].headline}
                     </h2>
                   </div>
 
-                  <p className="text-slate-300 text-xs sm:text-lg font-light leading-relaxed max-w-2xl">
+                  <p className="text-slate-300 dark:text-slate-700 text-xs sm:text-lg font-light leading-relaxed max-w-2xl transition-colors">
                     {steps[activeStep].description}
                   </p>
 
                   <div className="pt-2">
                     <button
                       onClick={scrollToServices}
-                      className="group inline-flex items-center space-x-2 text-[11px] sm:text-xs font-bold font-mono uppercase tracking-widest text-amber-400 hover:text-amber-300 bg-slate-900/90 hover:bg-slate-800/90 px-5 py-3 rounded-xl border border-amber-500/30 shadow-xl transition-all cursor-pointer"
+                      className="group inline-flex items-center space-x-2 text-[11px] sm:text-xs font-bold font-mono uppercase tracking-widest text-amber-400 dark:text-amber-700 hover:text-amber-300 bg-slate-900/90 dark:bg-white/90 hover:bg-slate-800/90 dark:hover:bg-slate-100 px-5 py-3 rounded-xl border border-amber-500/30 dark:border-amber-500/40 shadow-xl transition-all cursor-pointer"
                     >
                       <span>Cotizar Módulo</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -207,9 +208,9 @@ export default function Hero() {
             </AnimatePresence>
           </div>
 
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 items-center w-full max-w-7xl mx-auto pt-2 border-t border-slate-800/40 text-[10px] sm:text-xs font-mono text-slate-400 gap-2">
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 items-center w-full max-w-7xl mx-auto pt-2 border-t border-slate-800/40 dark:border-slate-300/40 text-[10px] sm:text-xs font-mono text-slate-400 dark:text-slate-600 gap-2 transition-colors">
             <span className="truncate text-left">Jordan Santander — FullStack & Ops</span>
-            <span className="text-amber-400 font-semibold animate-pulse text-center justify-self-center">Sigue deslizando ↓</span>
+            <span className="text-amber-400 dark:text-amber-600 font-semibold animate-pulse text-center justify-self-center">Sigue deslizando ↓</span>
           </div>
 
         </div>
