@@ -41,7 +41,7 @@ export default function Footer() {
               href="https://github.com/jsantander-cl" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-blue-500 transition-all"
+              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-amber-500 transition-all"
             >
               <GithubIcon className="w-4 h-4" />
             </a>
@@ -49,7 +49,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/jordans-phillips/" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-blue-500 transition-all"
+              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-amber-500 transition-all"
             >
               <LinkedinIcon className="w-4 h-4" />
             </a>
@@ -57,13 +57,13 @@ export default function Footer() {
               href="https://www.instagram.com/jp_frontend/" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-pink-500 transition-all"
+              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-pink-500 transition-all"
             >
               <InstagramIcon className="w-4 h-4" />
             </a>
             <a 
               href="mailto:j.santanderph@gmail.com" 
-              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-blue-500 transition-all"
+              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-amber-500 transition-all"
             >
               <Mail className="w-4 h-4" />
             </a>
@@ -74,7 +74,7 @@ export default function Footer() {
             className="inline-flex items-center space-x-2 bg-slate-900 hover:bg-slate-800 border border-slate-800 px-4 py-2.5 rounded-xl text-slate-300 hover:text-white transition-all cursor-pointer"
           >
             <span>Volver Arriba</span>
-            <ArrowUp className="w-3.5 h-3.5 text-blue-400" />
+            <ArrowUp className="w-3.5 h-3.5 text-amber-400" />
           </button>
         </div>
 

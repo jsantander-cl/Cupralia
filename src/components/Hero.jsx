@@ -69,15 +69,12 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative bg-slate-950 text-slate-100 font-sans selection:bg-blue-600 selection:text-white w-full">
+    <div className="relative bg-slate-950 text-slate-100 font-sans selection:bg-amber-600 selection:text-white w-full">
       
-      {/* SECCIÓN PINNED CON ALTURA DE 300vh EXACTA */}
       <section ref={pinnedRef} id="experiencia-hero-pinned" className="relative h-[300vh] bg-slate-950 w-full">
         
-        {/* MARCO STICKY FIJO CALCULADO DEBAJO DEL NAVBAR */}
         <div className="sticky top-16 h-[calc(100vh-4rem)] w-full flex flex-col justify-between p-4 sm:p-8 lg:px-16 lg:py-8 overflow-hidden">
           
-          {/* A. IMAGEN DE FONDO */}
           <AnimatePresence mode="wait">
             <motion.div 
               key={activeStep}
@@ -92,20 +89,19 @@ export default function Hero() {
                 alt="Background"
                 className="w-full h-full object-cover filter brightness-[0.55] contrast-[1.1]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/70"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-400/10 to-slate-950/70"></div>
               <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
             </motion.div>
           </AnimatePresence>
 
-          {/* B. BARRA SUPERIOR DE PASOS / BADGES */}
           <div className="relative z-10 flex items-center justify-between w-full max-w-7xl mx-auto pt-1 gap-2">
             {activeStep === 0 ? (
               <motion.div 
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-slate-900/90 backdrop-blur-md border border-slate-800 text-blue-400 text-[10px] sm:text-xs font-semibold tracking-wider uppercase shadow-xl"
+                className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-slate-900/90 backdrop-blur-md border border-amber-500/20 text-amber-400 text-[10px] sm:text-xs font-semibold tracking-wider uppercase shadow-xl"
               >
-                <Sparkles className="w-3 h-3 shrink-0 animate-pulse" />
+                <Sparkles className="w-3 h-3 shrink-0 animate-pulse text-amber-400" />
                 <span>Atelier de Software & Soluciones Web</span>
               </motion.div>
             ) : (
@@ -114,16 +110,15 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 className="flex items-center space-x-2"
               >
-                <span className="text-xl sm:text-2xl font-black font-mono text-blue-400 tracking-tighter">
+                <span className="text-xl sm:text-2xl font-black font-mono text-amber-400 tracking-tighter">
                   {steps[activeStep].number}
                 </span>
-                <span className="text-[10px] sm:text-xs font-mono font-bold text-slate-200 uppercase tracking-wider bg-slate-900/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-slate-700/80 shadow-xl">
+                <span className="text-[10px] sm:text-xs font-mono font-bold text-slate-200 uppercase tracking-wider bg-slate-900/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-amber-500/30 shadow-xl">
                   {steps[activeStep].tag}
                 </span>
               </motion.div>
             )}
 
-            {/* Puntos de progreso */}
             <div className="flex items-center space-x-2 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-800 shadow-xl">
               <span className="text-[9px] sm:text-[10px] font-mono font-bold text-slate-400 uppercase hidden sm:inline">PROGRESO</span>
               <div className="flex items-center space-x-1">
@@ -131,7 +126,7 @@ export default function Hero() {
                   <div 
                     key={stepIdx}
                     className={`h-1.5 rounded-full transition-all duration-500 ${
-                      activeStep === stepIdx ? 'w-5 bg-blue-500' : 'w-1.5 bg-slate-700/80'
+                      activeStep === stepIdx ? 'w-5 bg-amber-500' : 'w-1.5 bg-slate-700/80'
                     }`}
                   />
                 ))}
@@ -139,7 +134,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* C. CONTENIDO EN PANTALLA */}
           <div className="relative z-10 w-full max-w-7xl mx-auto my-auto py-2">
             <AnimatePresence mode="wait">
               {activeStep === 0 ? (
@@ -153,7 +147,7 @@ export default function Hero() {
                 >
                   <h1 className="text-3xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-tight sm:leading-[1.05]">
                     SOFTWARE CON <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-200 to-slate-100">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-orange-500">
                       PROPÓSITO & RIGOR.
                     </span>
                   </h1>
@@ -165,7 +159,7 @@ export default function Hero() {
                   <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                     <button
                       onClick={scrollToServices}
-                      className="group inline-flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs tracking-widest uppercase px-6 py-3.5 rounded-xl shadow-xl shadow-blue-600/30 transition-all cursor-pointer"
+                      className="group inline-flex items-center justify-center space-x-2 bg-amber-600 hover:bg-amber-500 text-slate-950 font-bold text-xs tracking-widest uppercase px-6 py-3.5 rounded-xl shadow-xl shadow-amber-600/30 transition-all cursor-pointer"
                     >
                       <span>Armar Cotización Web</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -173,7 +167,7 @@ export default function Hero() {
                     
                     <span className="text-[11px] font-mono text-slate-400 flex items-center justify-center space-x-1.5 pt-1 sm:pt-0">
                       <span>Desliza para comenzar</span>
-                      <ChevronDown className="w-3.5 h-3.5 text-blue-400 animate-bounce" />
+                      <ChevronDown className="w-3.5 h-3.5 text-amber-400 animate-bounce" />
                     </span>
                   </div>
                 </motion.div>
@@ -187,7 +181,7 @@ export default function Hero() {
                   className="max-w-3xl space-y-4"
                 >
                   <div className="space-y-1">
-                    <span className="text-[11px] font-mono font-semibold text-blue-400 tracking-widest uppercase block">
+                    <span className="text-[11px] font-mono font-semibold text-amber-400 tracking-widest uppercase block">
                       {steps[activeStep].subheadline}
                     </span>
                     <h2 className="text-2xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
@@ -202,7 +196,7 @@ export default function Hero() {
                   <div className="pt-2">
                     <button
                       onClick={scrollToServices}
-                      className="group inline-flex items-center space-x-2 text-[11px] sm:text-xs font-bold font-mono uppercase tracking-widest text-blue-400 hover:text-blue-300 bg-slate-900/90 hover:bg-slate-800/90 px-5 py-3 rounded-xl border border-slate-700/80 shadow-xl transition-all cursor-pointer"
+                      className="group inline-flex items-center space-x-2 text-[11px] sm:text-xs font-bold font-mono uppercase tracking-widest text-amber-400 hover:text-amber-300 bg-slate-900/90 hover:bg-slate-800/90 px-5 py-3 rounded-xl border border-amber-500/30 shadow-xl transition-all cursor-pointer"
                     >
                       <span>Cotizar Módulo</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -213,11 +207,9 @@ export default function Hero() {
             </AnimatePresence>
           </div>
 
-          {/* D. BARRA INFERIOR (Texto central en desktop mediante grid/flex de 3 columnas para evitar que WhatsApp lo tape) */}
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 items-center w-full max-w-7xl mx-auto pt-2 border-t border-slate-800/40 text-[10px] sm:text-xs font-mono text-slate-400 gap-2">
             <span className="truncate text-left">Jordan Santander — FullStack & Ops</span>
-            <span className="text-blue-400 font-semibold animate-pulse text-center justify-self-center">Sigue deslizando ↓</span>
-            
+            <span className="text-amber-400 font-semibold animate-pulse text-center justify-self-center">Sigue deslizando ↓</span>
           </div>
 
         </div>

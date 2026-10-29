@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Menu, X, Terminal, MapPin } from 'lucide-react';
+import { ShoppingBag, Menu, X, MapPin } from 'lucide-react';
+import logoSvg from '../assets/logo-cupralia.svg';
 
 export default function Navbar({ selectedCount = 0, onOpenCart }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -8,17 +9,29 @@ export default function Navbar({ selectedCount = 0, onOpenCart }) {
     <header className="sticky top-0 z-50 w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         
-        {/* Brand / Logo */}
-        <a href="#" className="flex items-center space-x-2.5 group">
-          <div className="w-8 h-8 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all">
-            <Terminal className="w-4 h-4" />
+        {/* Brand / Logo Oficial */}
+        <a href="#" className="flex items-center space-x-3 group">
+          <div className="relative flex items-center justify-center transition-transform group-hover:scale-105">
+            <div className="absolute inset-0 bg-amber-500/20 blur-md rounded-full"></div>
+            <img 
+              src={logoSvg} 
+              alt="CUPRALIA LABS Isotipo" 
+              className="w-20 h-16 object-contain relative z-10" 
+            />
           </div>
-          <span className="text-base font-bold text-white font-sans tracking-tight">CUPRALIA</span>
+          <div className="flex flex-col">
+            <span className="text-sm sm:text-base font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 tracking-wider font-mono">
+              CUPRALIA LABS
+            </span>
+            <span className="text-[9px] font-mono text-slate-400 tracking-widest uppercase -mt-1">
+              Web Development Agency
+            </span>
+          </div>
         </a>
 
         {/* Ubicación Desktop */}
-        <div className="hidden md:flex items-center space-x-1.5 text-xs font-mono text-slate-400 bg-slate-900/80 px-20 py-1.5 rounded-full border border-slate-800">
-          <MapPin className="w-3.5 h-3.5 text-blue-400" />
+        <div className="hidden md:flex items-center space-x-1.5 text-xs font-mono text-slate-400 bg-slate-900/80 px-4 py-1.5 rounded-full border border-slate-800">
+          <MapPin className="w-3.5 h-3.5 text-amber-500" />
           <span>Antofagasta, Chile</span>
         </div>
 
@@ -28,7 +41,7 @@ export default function Navbar({ selectedCount = 0, onOpenCart }) {
           {/* Botón Cotizador / Contador */}
           <button
             onClick={onOpenCart}
-            className="flex items-center space-x-2 bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/30 px-3.5 py-1.5 rounded-xl text-xs font-mono text-blue-400 hover:text-blue-300 transition-all cursor-pointer"
+            className="flex items-center space-x-2 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 px-3.5 py-1.5 rounded-xl text-xs font-mono text-amber-400 hover:text-amber-300 transition-all cursor-pointer shadow-lg shadow-amber-500/5"
           >
             <ShoppingBag className="w-4 h-4" />
             <span className="font-bold">{selectedCount}</span>
@@ -52,28 +65,28 @@ export default function Navbar({ selectedCount = 0, onOpenCart }) {
           <a 
             href="#servicios" 
             onClick={() => setMobileMenuOpen(false)} 
-            className="block py-2 text-slate-300 hover:text-white"
+            className="block py-2 text-slate-300 hover:text-amber-400 transition-colors"
           >
             01. Servicios & Cotizador
           </a>
           <a 
             href="#perfil" 
             onClick={() => setMobileMenuOpen(false)} 
-            className="block py-2 text-slate-300 hover:text-white"
+            className="block py-2 text-slate-300 hover:text-amber-400 transition-colors"
           >
             02. Perfil Híbrido
           </a>
           <a 
             href="#proyectos" 
             onClick={() => setMobileMenuOpen(false)} 
-            className="block py-2 text-slate-300 hover:text-white"
+            className="block py-2 text-slate-300 hover:text-amber-400 transition-colors"
           >
             03. Portafolio
           </a>
           <a 
             href="#contacto" 
             onClick={() => setMobileMenuOpen(false)} 
-            className="block py-2 text-slate-300 hover:text-white"
+            className="block py-2 text-slate-300 hover:text-amber-400 transition-colors"
           >
             04. Contacto & FAQ
           </a>

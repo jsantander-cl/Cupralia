@@ -67,21 +67,27 @@ export default function ServicesCart({ selectedServices = [], selectedAddons = [
   const totalUSD = servicesTotal + addonsTotal;
   const totalCount = selectedServices.length + selectedAddons.length;
 
-  const handleSendWhatsApp = (e) => {
+ const handleSendWhatsApp = (e) => {
     e.preventDefault();
     if (totalCount === 0) return;
 
     const chosenServicesNames = selectedServices.map(id => SERVICES.find(s => s.id === id)?.title).filter(Boolean);
     const chosenAddonsNames = selectedAddons.map(id => ADDONS.find(a => a.id === id)?.name).filter(Boolean);
 
-    let msg = `Hola Jordan! Armé una cotización en tu sitio web:\n\n`;
-    if (clientName) msg += `*Nombre:* ${clientName}\n`;
-    if (clientEmail) msg += `*Email:* ${clientEmail}\n`;
-    msg += `\n*Servicios Seleccionados:*\n${chosenServicesNames.map(s => `- ${s}`).join('\n') || 'Ninguno'}\n`;
+    let msg = `*NUEVA COTIZACIÓN - CUPRALIA LABS*\n\n`;
+    msg += `*Cliente / Empresa:* ${clientName || 'No especificado'}\n`;
+    msg += `*Correo:* ${clientEmail || 'No especificado'}\n\n`;
+    
+    msg += `*Servicios Seleccionados:*\n`;
+    msg += chosenServicesNames.map(s => `> ${s}`).join('\n') || '> Ninguno';
+    
     if (chosenAddonsNames.length > 0) {
-      msg += `\n*Complementos:*\n${chosenAddonsNames.map(a => `- ${a}`).join('\n')}\n`;
+      msg += `\n\n*Módulos Complementarios:*\n`;
+      msg += chosenAddonsNames.map(a => `> ${a}`).join('\n');
     }
-    msg += `\n*Inversión Total Estimada:* $${totalUSD} USD`;
+
+    msg += `\n\n*Inversión Total Estimada:* *$${totalUSD} USD*\n\n`;
+    msg += `_Hola Jordan, me interesa avanzar con esta cotización. ¿Podemos coordinar una reunión de alineación?_`;
 
     window.open(`https://wa.me/56953892756?text=${encodeURIComponent(msg)}`, '_blank');
   };
@@ -91,10 +97,9 @@ export default function ServicesCart({ selectedServices = [], selectedAddons = [
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
         
-        {/* Titular */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono font-semibold uppercase tracking-widest">
-            <Zap className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-mono font-semibold uppercase tracking-widest">
+            <Zap className="w-3.5 h-3.5 text-amber-400" />
             <span>Cotizador Interactivo en Tiempo Real</span>
           </div>
 
@@ -107,10 +112,8 @@ export default function ServicesCart({ selectedServices = [], selectedAddons = [
           </p>
         </div>
 
-        {/* Layout Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative">
           
-          {/* Lado Izquierdo: Selección de Servicios */}
           <div className="lg:col-span-7 space-y-6">
             
             <h3 className="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">
@@ -127,21 +130,21 @@ export default function ServicesCart({ selectedServices = [], selectedAddons = [
                     onClick={() => onToggleService(s.id)}
                     className={`p-5 sm:p-6 rounded-3xl border transition-all cursor-pointer relative overflow-hidden ${
                       isSelected 
-                        ? 'bg-blue-950/30 border-blue-500/80 shadow-xl shadow-blue-500/10' 
+                        ? 'bg-amber-950/20 border-amber-500/80 shadow-xl shadow-amber-500/10' 
                         : 'bg-slate-900/60 border-slate-800 hover:border-slate-700'
                     }`}
                   >
                     <div className="flex flex-col space-y-2 mb-3">
-                      <span className="self-start text-[10px] font-mono font-bold uppercase tracking-wider text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">
+                      <span className="self-start text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
                         {s.category}
                       </span>
                       
                       <div className="flex items-center justify-between">
                         <h4 className="text-lg font-bold text-white pr-4">{s.title}</h4>
                         <div className={`w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
-                          isSelected ? 'bg-blue-600 border-blue-500 text-white' : 'border-slate-700'
+                          isSelected ? 'bg-amber-600 border-amber-500 text-slate-950 font-bold' : 'border-slate-700'
                         }`}>
-                          {isSelected && <Check className="w-3.5 h-3.5" />}
+                          {isSelected && <Check className="w-3.5 h-3.5 text-slate-950" />}
                         </div>
                       </div>
                     </div>
@@ -153,7 +156,7 @@ export default function ServicesCart({ selectedServices = [], selectedAddons = [
                     <ul className="space-y-2 text-xs text-slate-300 font-mono mb-4 border-t border-slate-800/60 pt-3">
                       {s.features.map((feat, fIdx) => (
                         <li key={fIdx} className="flex items-center space-x-2">
-                          <Check className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                          <Check className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                           <span>{feat}</span>
                         </li>
                       ))}
@@ -161,7 +164,7 @@ export default function ServicesCart({ selectedServices = [], selectedAddons = [
 
                     <div className="flex items-center justify-between pt-2 border-t border-slate-800/80 text-xs font-mono">
                       <span className="text-slate-400">Inversión base:</span>
-                      <span className="text-base font-bold text-blue-400">${s.priceUSD} USD</span>
+                      <span className="text-base font-bold text-amber-400">${s.priceUSD} USD</span>
                     </div>
 
                   </div>
@@ -169,10 +172,9 @@ export default function ServicesCart({ selectedServices = [], selectedAddons = [
               })}
             </div>
 
-            {/* Addons */}
             <div className="pt-4 space-y-3">
               <h3 className="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">
-                02. Modulos Complementarios (Opcionales)
+                02. Módulos Complementarios (Opcionales)
               </h3>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -185,18 +187,18 @@ export default function ServicesCart({ selectedServices = [], selectedAddons = [
                       onClick={() => onToggleAddon(a.id)}
                       className={`p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center justify-between ${
                         isSelected 
-                          ? 'bg-blue-950/40 border-blue-500/60 text-white' 
+                          ? 'bg-amber-950/30 border-amber-500/60 text-white' 
                           : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200'
                       }`}
                     >
                       <div className="space-y-0.5 pr-2">
                         <p className="text-xs font-bold font-mono">{a.name}</p>
-                        <p className="text-[10px] font-mono text-blue-400">+${a.priceUSD} USD</p>
+                        <p className="text-[10px] font-mono text-amber-400">+${a.priceUSD} USD</p>
                       </div>
                       <div className={`w-5 h-5 rounded-md border flex items-center justify-center shrink-0 ${
-                        isSelected ? 'bg-blue-600 border-blue-500 text-white' : 'border-slate-700'
+                        isSelected ? 'bg-amber-600 border-amber-500 text-slate-950' : 'border-slate-700'
                       }`}>
-                        {isSelected ? <Check className="w-3 h-3" /> : <Plus className="w-3 h-3 text-slate-500" />}
+                        {isSelected ? <Check className="w-3 h-3 text-slate-950 font-bold" /> : <Plus className="w-3 h-3 text-slate-500" />}
                       </div>
                     </div>
                   );
@@ -206,19 +208,18 @@ export default function ServicesCart({ selectedServices = [], selectedAddons = [
 
           </div>
 
-          {/* Lado Derecho: Margen superior ajustado (mt-8) para nivelar perfectamente con la card izquierda */}
           <div className="lg:col-span-5 sticky top-24 self-start mt-8">
             <div className="bg-slate-900/90 backdrop-blur-md border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
               
               <div className="flex items-center justify-between pb-4 border-b border-slate-800">
                 <div className="flex items-center space-x-2">
-                  <ShoppingBag className="w-5 h-5 text-blue-400 shrink-0" />
+                  <ShoppingBag className="w-5 h-5 text-amber-400 shrink-0" />
                   <h3 className="text-sm sm:text-base font-bold text-white tracking-tight whitespace-nowrap">
                     Resumen de Cotización
                   </h3>
                 </div>
 
-                <div className="bg-slate-950 px-3 py-1 rounded-full border border-slate-800 text-xs font-mono text-blue-400 flex items-center space-x-1 shrink-0">
+                <div className="bg-slate-950 px-3 py-1 rounded-full border border-slate-800 text-xs font-mono text-amber-400 flex items-center space-x-1 shrink-0">
                   <span className="font-bold">{totalCount}</span>
                   <span className="text-[11px] text-slate-400">ítems</span>
                 </div>
@@ -236,7 +237,7 @@ export default function ServicesCart({ selectedServices = [], selectedAddons = [
                       return (
                         <div key={id} className="flex justify-between items-center text-slate-300 py-1 border-b border-slate-800/40">
                           <span className="truncate pr-2">{item?.title}</span>
-                          <span className="text-blue-400 font-bold">${item?.priceUSD}</span>
+                          <span className="text-amber-400 font-bold">${item?.priceUSD}</span>
                         </div>
                       );
                     })}
@@ -245,7 +246,7 @@ export default function ServicesCart({ selectedServices = [], selectedAddons = [
                       return (
                         <div key={id} className="flex justify-between items-center text-slate-400 py-1 border-b border-slate-800/40">
                           <span className="truncate pr-2">+ {item?.name}</span>
-                          <span className="text-indigo-400 font-bold">${item?.priceUSD}</span>
+                          <span className="text-orange-400 font-bold">${item?.priceUSD}</span>
                         </div>
                       );
                     })}
@@ -255,7 +256,7 @@ export default function ServicesCart({ selectedServices = [], selectedAddons = [
 
               <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
                 <span className="text-xs font-mono text-slate-400">Inversión Total:</span>
-                <span className="text-2xl font-black text-blue-400 font-mono">${totalUSD} USD</span>
+                <span className="text-2xl font-black text-amber-400 font-mono">${totalUSD} USD</span>
               </div>
 
               <form onSubmit={handleSendWhatsApp} className="space-y-3 pt-2">
@@ -264,14 +265,14 @@ export default function ServicesCart({ selectedServices = [], selectedAddons = [
                   placeholder="Tu Nombre o Empresa"
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-blue-500"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-amber-500"
                 />
                 <input 
                   type="email" 
                   placeholder="Tu Correo Electrónico"
                   value={clientEmail}
                   onChange={(e) => setClientEmail(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-blue-500"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-amber-500"
                 />
 
                 <button
@@ -279,7 +280,7 @@ export default function ServicesCart({ selectedServices = [], selectedAddons = [
                   disabled={totalCount === 0}
                   className={`w-full flex items-center justify-center space-x-2 py-4 rounded-xl font-bold text-xs font-mono uppercase tracking-widest transition-all ${
                     totalCount > 0 
-                      ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/30 cursor-pointer' 
+                      ? 'bg-amber-600 hover:bg-amber-500 text-slate-950 shadow-lg shadow-amber-600/30 cursor-pointer font-extrabold' 
                       : 'bg-slate-800 text-slate-500 cursor-not-allowed'
                   }`}
                 >
