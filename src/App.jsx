@@ -7,6 +7,8 @@ import Portfolio from './components/Portfolio';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import CookieConsent from './components/CookieConsent';
+
 
 export default function App() {
   const [selectedServices, setSelectedServices] = useState([]);
@@ -54,6 +56,9 @@ export default function App() {
 
       {/* Botón Flotante de WhatsApp */}
       <WhatsAppButton />
+
+      {/* Banner de Consentimiento de Cookies */}
+      <CookieConsent />
     </div>
   );
 }
