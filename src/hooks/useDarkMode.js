@@ -10,11 +10,11 @@ export function useDarkMode() {
   useEffect(() => {
     localStorage.setItem('cupralia_theme', JSON.stringify(isDarkMode));
     if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-    } else {
-      document.documentElement.classList.remove('dark');
       document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.remove('light');
+      document.documentElement.classList.add('dark');
     }
   }, [isDarkMode]);
 
