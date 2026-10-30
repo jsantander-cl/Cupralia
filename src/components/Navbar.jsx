@@ -21,10 +21,17 @@ export default function Navbar({ selectedCount = 0, onOpenCart }) {
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-sm sm:text-base font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 dark:text-amber-700 tracking-wider font-mono">
+            {/* Versión Mobile: Muestra solo 'CUPRALIA' en una línea */}
+            <span className="text-sm font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 dark:text-amber-700 tracking-wider font-mono block sm:hidden">
+              CUPRALIA
+            </span>
+
+            {/* Versión Desktop: Muestra 'CUPRALIA LABS' completo */}
+            <span className="text-base font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 dark:text-amber-700 tracking-wider font-mono hidden sm:block">
               CUPRALIA LABS
             </span>
-            {/* Oculto en mobile (hidden), visible desde dispositivos medianos/grandes en adelante (sm:block) */}
+
+            {/* Subtítulo: Oculto en mobile, visible desde sm en adelante */}
             <span className="text-[9px] font-mono text-slate-400 dark:text-slate-500 tracking-widest uppercase -mt-1 hidden sm:block">
               Web Development Agency
             </span>
@@ -40,11 +47,11 @@ export default function Navbar({ selectedCount = 0, onOpenCart }) {
         {/* Acciones Derecha */}
         <div className="flex items-center space-x-3">
           
-          {/* Toggle Switch Corregido y Sincronizado */}
+          {/* Toggle Switch (Visible en Desktop / Oculto en Mobile para pasarlo al menú) */}
           <button
             onClick={toggleTheme}
-            className="relative inline-flex items-center h-8 w-16 rounded-full bg-slate-900 dark:bg-slate-200 border border-amber-500/30 dark:border-amber-400/50 transition-colors cursor-pointer p-1 shadow-inner"
-            aria-label="Cambiar Tema"
+            className="hidden md:inline-flex relative items-center h-8 w-16 rounded-full bg-slate-900 dark:bg-slate-200 border border-amber-500/30 dark:border-amber-400/50 transition-colors cursor-pointer p-1 shadow-inner"
+            aria-label="Cambiar Tema Desktop"
           >
             <div
               className={`flex items-center justify-center w-6 h-6 rounded-full bg-amber-500 text-slate-950 shadow-md transform transition-transform duration-300 ${
@@ -82,11 +89,33 @@ export default function Navbar({ selectedCount = 0, onOpenCart }) {
 
       {/* Menú Desplegable Mobile */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-slate-950/98 dark:bg-slate-50/98 border-b border-slate-900 dark:border-slate-200 px-4 py-4 space-y-3 font-mono text-xs">
-          <a href="#servicios" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-300 dark:text-slate-700 hover:text-amber-400">01. Servicios & Cotizador</a>
-          <a href="#perfil" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-300 dark:text-slate-700 hover:text-amber-400">02. Perfil Híbrido</a>
-          <a href="#proyectos" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-300 dark:text-slate-700 hover:text-amber-400">03. Portafolio</a>
+        <div className="md:hidden bg-slate-950/98 dark:bg-slate-50/98 border-b border-slate-900 dark:border-slate-200 px-4 py-5 space-y-4 font-mono text-xs">
+          <a href="#servicios" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-300 dark:text-slate-700 hover:text-amber-400 border-b border-slate-900 dark:border-slate-200">01. Servicios & Cotizador</a>
+          <a href="#perfil" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-300 dark:text-slate-700 hover:text-amber-400 border-b border-slate-900 dark:border-slate-200">02. Perfil Híbrido</a>
+          <a href="#proyectos" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-300 dark:text-slate-700 hover:text-amber-400 border-b border-slate-900 dark:border-slate-200">03. Portafolio</a>
           <a href="#contacto" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-300 dark:text-slate-700 hover:text-amber-400">04. Contacto & FAQ</a>
+          
+          {/* Switch de modo oscuro integrado y exclusivo dentro del menú mobile */}
+          <div className="flex items-center justify-between pt-2 border-t border-slate-900 dark:border-slate-200">
+            <span className="text-slate-400 dark:text-slate-600 uppercase tracking-widest text-[10px]">Modo Visual</span>
+            <button
+              onClick={toggleTheme}
+              className="relative inline-flex items-center h-8 w-16 rounded-full bg-slate-900 dark:bg-slate-200 border border-amber-500/30 dark:border-amber-400/50 transition-colors cursor-pointer p-1 shadow-inner"
+              aria-label="Cambiar Tema Mobile"
+            >
+              <div
+                className={`flex items-center justify-center w-6 h-6 rounded-full bg-amber-500 text-slate-950 shadow-md transform transition-transform duration-300 ${
+                  isDarkMode ? 'translate-x-0' : 'translate-x-8 bg-amber-600 text-white'
+                }`}
+              >
+                {isDarkMode ? (
+                  <Sun className="w-3.5 h-3.5" />
+                ) : (
+                  <Moon className="w-3.5 h-3.5" />
+                )}
+              </div>
+            </button>
+          </div>
         </div>
       )}
     </header>

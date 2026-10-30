@@ -8,12 +8,13 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import CookieConsent from './components/CookieConsent';
+import IntroSplash from './components/IntroSplash';
 
 export default function App() {
   const [selectedServices, setSelectedServices] = useState([]);
   const [selectedAddons, setSelectedAddons] = useState([]);
+  const [showIntro, setShowIntro] = useState(true); // Controla el estado del video de inicio
 
-  // Solución para evitar que la web mantenga el scroll al refrescar
   useEffect(() => {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
@@ -48,7 +49,17 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-blue-600 selection:text-white relative w-full">
-      <Navbar selectedCount={totalSelectedCount} onOpenCart={scrollToServices} />
+      {/* Pantalla de Carga Inicial con Video */}
+      {showIntro && <IntroSplash onFinish={() => setShowIntro(false)} />}
+
+      {/* El Navbar y el botón de WhatsApp solo se muestran cuando termina la intro */}
+      {!showIntro && (
+        <>
+          <Navbar selectedCount={totalSelectedCount} onOpenCart={scrollToServices} />
+          <WhatsAppButton />
+        </>
+      )}
+
       <Hero />
       <ServicesCart 
         selectedServices={selectedServices}
@@ -60,9 +71,6 @@ export default function App() {
       <Portfolio />
       <ContactSection />
       <Footer />
-
-      {/* Botón Flotante de WhatsApp */}
-      <WhatsAppButton />
 
       {/* Banner de Consentimiento de Cookies */}
       <CookieConsent />
