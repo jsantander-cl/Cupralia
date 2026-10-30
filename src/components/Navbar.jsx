@@ -24,6 +24,7 @@ export default function Navbar({ selectedCount = 0, onOpenCart }) {
             <span className="text-sm sm:text-base font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 dark:text-amber-700 tracking-wider font-mono">
               CUPRALIA LABS
             </span>
+            {/* Oculto en mobile (hidden), visible desde dispositivos medianos/grandes en adelante (sm:block) */}
             <span className="text-[9px] font-mono text-slate-400 dark:text-slate-500 tracking-widest uppercase -mt-1 hidden sm:block">
               Web Development Agency
             </span>
@@ -39,7 +40,7 @@ export default function Navbar({ selectedCount = 0, onOpenCart }) {
         {/* Acciones Derecha */}
         <div className="flex items-center space-x-3">
           
-          {/* Toggle Switch (Sol / Luna invertidos correctamente) */}
+          {/* Toggle Switch Corregido y Sincronizado */}
           <button
             onClick={toggleTheme}
             className="relative inline-flex items-center h-8 w-16 rounded-full bg-slate-900 dark:bg-slate-200 border border-amber-500/30 dark:border-amber-400/50 transition-colors cursor-pointer p-1 shadow-inner"

@@ -3,24 +3,29 @@ import { useState, useEffect } from 'react';
 export function useDarkMode() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const saved = localStorage.getItem('cupralia_theme');
-    // Si no hay nada guardado, iniciamos en false (que en tu lógica actual activa el modo oscuro por defecto)
+    // Si hay un valor guardado, úsalo; si no, por defecto iniciamos en true (modo oscuro)
     return saved !== null ? JSON.parse(saved) : false;
   });
 
   useEffect(() => {
     localStorage.setItem('cupralia_theme', JSON.stringify(isDarkMode));
     
-    // Al estar invertido, 'false' activa la clase dark y 'true' activa la clase light
-    if (!isDarkMode) {
-      document.documentElement.classList.add('light');
-      document.documentElement.classList.remove('dark');
+    const root = document.documentElement;
+    
+    // Si isDarkMode es true, agregamos 'dark' y removemos 'light'.
+    // Si es false, removemos 'dark' y agregamos 'light'.
+    if (isDarkMode) {
+      root.classList.add('dark');
+      root.classList.remove('light');
     } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.classList.add('light');
+      root.classList.remove('dark');
+      root.classList.add('light');
     }
   }, [isDarkMode]);
 
-  const toggleTheme = () => setIsDarkMode(!isDarkMode);
+  const toggleTheme = () => {
+    setIsDarkMode(prev => !prev);
+  };
 
   return [isDarkMode, toggleTheme];
 }
