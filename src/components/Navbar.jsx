@@ -24,7 +24,7 @@ export default function Navbar({ selectedCount = 0, onOpenCart }) {
             <span className="text-sm sm:text-base font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 dark:text-amber-700 tracking-wider font-mono">
               CUPRALIA LABS
             </span>
-            <span className="text-[9px] font-mono text-slate-400 dark:text-slate-500 tracking-widest uppercase -mt-1">
+            <span className="text-[9px] font-mono text-slate-400 dark:text-slate-500 tracking-widest uppercase -mt-1 hidden sm:block">
               Web Development Agency
             </span>
           </div>
