@@ -22,7 +22,7 @@ export default function Hero() {
       tag: "IDENTIDAD OPERATIVA",
       headline: "VISIÓN DE NEGOCIO",
       subheadline: "Construido sobre experiencia real en terreno.",
-      description: "Más de 10 años gestionando operaciones complejas y recursos humanos en la gran minería (BHP - Minera Escondida) en Antofagasta. Entendemos los cuellos de botella de tu empresa antes de escribir la primera línea de código.",
+      description: "Más de 10 años gestionando operaciones complejas y recursos humanos en la gran minería en Antofagasta. Entendemos los obstaculos de tu empresa antes de escribir la primera línea de código.",
       bgImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=90"
     },
     {
@@ -154,7 +154,7 @@ export default function Hero() {
                   </h1>
 
                   <p className="text-slate-300 dark:text-slate-700 text-xs sm:text-lg max-w-2xl font-light leading-relaxed transition-colors">
-                    Fusionamos la disciplina de más de 10 años en operaciones mineras (BHP) con el desarrollo FullStack de alta gama. Soluciones sin artificios para empresas exigentes.
+                    Fusionamos la disciplina de más de 10 años en operaciones mineras con el desarrollo FullStack de alta gama. Soluciones sin artificios para empresas exigentes.
                   </p>
 
                   <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">

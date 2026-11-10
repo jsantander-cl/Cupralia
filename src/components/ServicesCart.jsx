@@ -8,22 +8,22 @@ const SERVICES = [
     category: 'Frontend & Conversión',
     title: 'Landing Page de Alto Impacto',
     description: 'Sitio web ultra rápido, optimizado para conversión (CRO), diseño mobile-first y enfocado en captar clientes potenciales para tu negocio.',
-    priceUSD: 250,
+    priceUSD: 150,
     features: [
       'Diseño Mobile-First impecable',
       'Optimización de velocidad y rendimiento',
       'Estructura orientada a ventas (Copywriting base)',
-      'Despliegue y configuración en Vercel'
+      'Despliegue y configuración de hosting'
     ]
   },
   {
     id: 'fullstack',
-    category: 'FullStack & Supabase',
+    category: 'FullStack',
     title: 'Aplicación Web & Dashboard',
     description: 'Plataforma web dinámica con autenticación, paneles interactivos, base de datos en tiempo real y flujos completos de administración.',
     priceUSD: 500,
     features: [
-      'Base de datos PostgreSQL en Supabase',
+      'Base de datos PostgreSQL',
       'Autenticación segura de usuarios',
       'Panel de administración a medida',
       'Integración de APIs y backend en Node.js'

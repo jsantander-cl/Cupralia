@@ -26,7 +26,7 @@ export default function HybridProfile() {
           </h2>
 
           <p className="text-slate-400 dark:text-slate-600 text-xs sm:text-sm leading-relaxed font-light transition-colors">
-            Combinamos más de 10 años de alta exigencia en operaciones mineras (BHP - Minera Escondida) con ingeniería de software moderna en Antofagasta, Chile.
+            Combinamos más de 10 años de alta exigencia en operaciones mineras con ingeniería de software moderna en Antofagasta, Chile.
           </p>
         </motion.div>
 
@@ -51,7 +51,7 @@ export default function HybridProfile() {
               </h3>
 
               <p className="text-slate-300 dark:text-slate-700 text-xs sm:text-sm font-light leading-relaxed transition-colors">
-                Haber liderado y operado en entornos críticos de la gran minería en <strong className="text-amber-400 dark:text-amber-700 font-semibold">Minera Escondida (BHP)</strong> nos otorga una perspectiva que ningunas otras agencias tienen: entendemos la prevención de riesgos, la optimización de tiempos muertos, el control de presupuestos y la eficiencia absoluta antes de escribir la primera línea de código.
+                Haber liderado y operado en entornos críticos de la <strong className="text-amber-400 dark:text-amber-700 font-semibold">Gran Minería </strong> nos otorga una perspectiva que ningunas otras agencias tienen: entendemos la seguridad de datos personales, la optimización de tiempos muertos, el control de presupuestos y la eficiencia absoluta antes de escribir la primera línea de código.
               </p>
             </div>
 
